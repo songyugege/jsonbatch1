@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSON with Checkbox</title>
+
+        <style type="text/css">
+        
+
+            body{
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container{
+                width: 300px;
+                background-color: #f4f4f4;
+                padding: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <h4>Choose Your Fav Colors</h4>
+
+            <div class="container">
+                <ul class="list-group">
+
+                </ul>
+            </div>
+        </div>
+        
+
+        <script type="text/javascript">
+
+            const getul = document.querySelector('.list-group');
+
+            var datas = `{"colors":{"Red Color":true,"Green Color":false,"Blue Color":true,"White Color":false,"Black Color":true,"Pink Color":true,"Violet":false}}`;
+            var dataobjs = JSON.parse(datas);
+            // console.log(dataobjs);
+            // console.log(dataobjs.colors);
+
+            var x = 0;
+
+            for(let key in dataobjs.colors){
+
+                // console.log(key);
+                // console.log(dataobjs.colors[key]);
+
+                x++;
+
+                // var status = dataobjs.colors[key] ? 'checked' : '';
+                var status = !dataobjs.colors[key] ? '' : 'checked';
+
+                var lis = `<li><input type="checkbox" id="${x}" value="" ${status} /><label for="${x}">${key}</label></li>`;
+                getul.innerHTML += lis;
+
+            }
+
+
+
+            clickeven();
+
+            
+            function clickeven(){
+                var getcheckeds = document.querySelectorAll('.list-group input[type="checkbox"]');
+                // console.log(getcheckeds);
+
+                for(var idx in getcheckeds){
+                    // console.log(getcheckeds[idx]);
+                    getcheckeds[idx].onchange = updatedata;
+
+                }
+
+            }
+
+            function updatedata(e){
+                // var getinputval = e.target.value;
+                var getinputval = this.value;
+                // console.log(getinputval);
+
+                var getinputstatus = this.checked;
+                // console.log(getinputstatus);
+
+
+                // dataobjs.colors.geinuputval = getinputstatus; // not working cuz
+                dataobjs.colors[getinputval] = getinputstatus; // It's ok now
+
+                console.log(dataobjs);
+
+            }
+
+
+
+         
+
+
+           
+          
+            
+        </script>
+
+    </body>
+</html>
+
+
+

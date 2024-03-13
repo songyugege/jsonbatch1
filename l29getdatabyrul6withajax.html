@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Joke API From URL 6 with Fetch</title>
+        <style type="text/css">
+            body{
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container{
+                width: 300px;
+                background-color: #f4f4f4;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <h3>Using Fetch</h3>
+            <button type="button" id="btn">Click Me</button>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+
+        <script type="text/javascript">
+
+
+            var getbtn = document.getElementById('btn');
+
+            getbtn.addEventListener('click',function(){
+                loaddata();
+            });
+
+
+
+            function loaddata(){
+
+                var url = `https://dummyjson.com/products`;
+
+                $.ajax({
+                    url:url
+                }).done((data)=>{
+                     console.log(data);
+                    // console.log(data.products);
+
+                    data.products.forEach(function(val){
+                        // console.log(val);
+                        console.log(val.id,val.title,val.price);
+                    });
+
+                    
+                }).fail(()=>{
+                    console.log('error');
+                })
+            
+            }
+
+
+
+
+           
+               
+                
+        </script>
+
+    </body>
+</html>
+
+
+<!-- https://dummyjson.com/ -->
+
+
+
+<!-- External ip
+    (1) Public Ip / dynamic ip
+    (2) Fixed / static ip -->

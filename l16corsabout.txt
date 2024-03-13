@@ -1,0 +1,28 @@
+=>CORS
+
+Cross-origin Resource Sharing
+
+
+= Same-origin policy
+
+URL                                                 Outcome              Reason
+http://dltbank.com/transer/crete.html               Same origin
+http://dltbank.com/transer/repot/check.html         Same origin          Only path different
+http://mm.dltbank.com/transer/repot/check.html      Different origin     Different protocol
+http://tha.dltbank.com:81/transer/crete.html        Different Origin     Different port ( http:// is port 80 by default )
+http://news.dltbank.com:81/article.html             Different Origin     Different host
+
+
+Same-origin policy is highly secure but inflexible for genius use cases.
+CORS is an extension of the same-origin policy
+You need CORS when you to pull data from extenal AIPs that are public or authorized or (authorized third-party acces to your own server resources)
+
+
+
+=> xmlhttp.readystate === 4
+
+0 = UNSENT open () has not been called yet.
+1 = OPENED send () has been called
+2 = HEADERS_TECEIVED send () has been called , and status are avaliable
+3 = LOADING downloading, responseText holds partial datas;
+4 = DONE the operation is completed.

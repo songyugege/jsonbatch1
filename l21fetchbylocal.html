@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Openweathermap Application by fetch</title>
+    </head>
+    <body>
+
+
+        <script type="text/javascript">
+
+
+            //AJAx 
+
+            // Initialize the HTTP Request 
+
+            // var xmlhttp = new XMLHttpRequest();
+
+            // xmlhttp.open("GET","./l12sampledata.json",false); // false mean no synchronize
+            // xmlhttp.send();
+
+            // if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+            //     // var result = xmlhttp;
+            //     // console.log(result);
+
+            //     var result = xmlhttp.responseText;
+            //     // console.log(result);
+            // }
+
+            // console.log(result);
+            // console.log(typeof result);
+
+            // result = JSON.parse(result);
+            
+            // console.log(result);
+            // console.log(typeof result);
+
+            // console.log(result.weather);
+            // console.log(result.weather[0].main);
+            // console.log(result.weather[0]['main']);
+
+            // console.log(result.wind.speed);
+            // console.log(result.wind["speed"]);
+            // console.log(result["wind"]["speed"]);
+
+            // console.log(result.name);
+
+
+
+            // => fetch()
+            // Syntax 
+
+            // fetch(url)
+            // .then(response=>response.json())
+            // .then(data)
+            // .catch(err=>console.log(err))
+
+
+            var url = "./l12sampledata.json";
+
+            fetch(url).then(function(response){
+                // console.log(response);
+                // console.log(response.headers.get('Content-type')); //application/json
+                // console.log(response.type);
+                return response.json();
+            }).then(function(data){
+                // console.log(data);
+                // console.log(typeof data);
+
+
+                // console.log(data.weather);
+                // console.log(data.weather[0].main);
+                // console.log(data.weather[0]['main']);
+
+                // console.log(data.wind.speed);
+                // console.log(data.wind["speed"]);
+                // console.log(result["wind"]["speed"]);
+
+                // console.log(result.name);
+
+            }).catch(function(err){
+                console.log(err);
+            })
+
+
+            
+        </script>
+
+    </body>
+</html>
+
+
+
